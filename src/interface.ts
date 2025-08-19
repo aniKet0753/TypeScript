@@ -1,4 +1,4 @@
-let users: User = {
+let users: User2 = {
   firstname: "ankit",
   lastname: "kumar",
   age: 17,
@@ -13,17 +13,17 @@ interface User {
   firstname: string;
   lastname: string;
   age: number;
-  adress?: {
-    // here the ? represents the optional property
-    // if you want to make the property optional then you can use ? after the property name
-    city: string;
-    pincode?: number; //INTRNALLY MAKE IT OPTIONAL
-    // if you want to make the property optional then you can use ? after the property name
-    country: string;
-  };
+  adress: Adress;
+}
+interface User2 {
+  firstname: string;
+  lastname: string;
+  age: number;
+  adress?: Adress; // this is optional property
+  // if you want to make the property optional then you can use the ? after the property
 }
 
-function userdisplay(users: User): boolean {
+function userdisplay(users: User2): boolean {
   if (users.age > 18) {
     return true;
   } else {
@@ -40,8 +40,8 @@ if (ligal) {
 //definig same adress somewhere else in another interface
 //in this case interface can hvae interface  inside interface
 // this is called nested interface
-// interface Adress {
-//   city: string;
-//   pincode: number;
-//   country: string;
-// }
+interface Adress {
+  city?: string;
+  pincode?: number;
+  country?: string;
+}
